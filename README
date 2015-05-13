@@ -1,0 +1,35 @@
+HOW TO EXECUTE:
+	Within the command-line of the Matlab software package, enter the following commmand to execute our solver:
+		'>> [flux, iterations, time] =  diffusion2Dsolver(a, sigTr, sigA, source, method)'
+VALUE DEFINITIONS AND EXPECTED INPUT:
+	'a': an arbitrary positive number representing the boundaries of the reactor system
+
+	'sig': vector containing cross-section information pertaining to the materials in the reactor system
+
+	'Tr': the macroscopic transport cross-section of the materials
+
+	'A': the absorption cross-section
+
+	'source': any number corresponding to the production from a fixed neutron source (in units of neutrons/second)
+
+	'method': a string which must be one of ['SOR', 'Gauss Seidel', 'Jacobi'], this is a selection of the method used to solve for the flux
+STATUS:
+	No known bugs. The code is completely functional. Expected user generated errors are accounted for and proper usage is clearly defined.
+PROBLEM:
+	Solves the fixed source 2D diffusion equation as well as the multiplying medium eigenvalue 2D diffusion equation.
+EXPECTED OUTPUT:
+	'flux':
+		Flux values are returned as a Matlab matrix object, where the solution flux vectors correspond to the columns of this matrix.
+	'iterations':
+		The number of iterations performed to produce the outputted solution.
+	'time':
+		The running time of the 2D solver in seconds.
+
+	Non-listed Outputs:
+		'Figure 1' corresponds to a surface plot of the flux.
+
+		'Figure 2' is a plot of the errors between the direct solution and the iterative solution.
+
+LIMITATIONS AND RESTRICTIONS:
+	- If an 'a' value is chosen which is too large the solver will take a prohibitively long amount of time to run: try to keep your 'a' values reasonably small.
+	- Similarly, if the value of 'source' >> 10e10 (neutrons/second), you will run into similar complications with time.
